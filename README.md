@@ -33,3 +33,9 @@ post some text to the service using curl
 ```
 curl -X POST --header "Content-Type: application/json" --data '{"query": "what are you?", "customerId": "12345"}' http://localhost:8080/query
 ```
+
+## docker build
+A simple docker script has been provided, just make sure you set your keys after the gradle build and setup
+```
+docker build --tag simsage-kotlin-server:1.0 .
+```
