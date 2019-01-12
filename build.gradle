@@ -1,0 +1,54 @@
+
+apply from: 'version.gradle'
+apply plugin: 'kotlin'
+
+allprojects {
+    group = 'nz.simsage'
+    version = '1.0.0'
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.10"
+    }
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://dev.bibsonomy.org/maven2/"
+    }
+    maven {
+        url "http://clojars.org/repo/"
+    }
+}
+
+dependencies {
+
+    // compile project(':qg')
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.10"
+    compile "org.jetbrains.kotlin:kotlin-script-runtime:1.3.10"
+
+    compile group: 'org.jetbrains.kotlin', name: 'kotlin-reflect', version: '1.3.10'
+    compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-kotlin', version: jacksonVersion
+
+    compile group: 'org.springframework', name: 'spring-context', version: springFrameworkVersion
+    // includes spring-core
+    compile group: 'org.springframework', name: 'spring-web', version: springFrameworkVersion
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: springBootWebVersion
+
+    // apache commons
+    compile group: 'commons-io', name: 'commons-io', version: commonsIoVersion
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: httpComponentsVersion
+    compile group: 'org.apache.httpcomponents', name: 'httpmime', version: httpComponentsVersion
+
+    testCompile group: 'junit', name: 'junit', version: junit
+}
