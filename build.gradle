@@ -52,3 +52,17 @@ dependencies {
 
     testCompile group: 'junit', name: 'junit', version: junit
 }
+
+// setup SimSage server in dist folder
+task setup(type: Copy) {
+    delete './dist/lib'
+    into './dist/lib'
+    from configurations.runtime
+    from jar
+    from(new File(project.rootDir.toString() + '/simsage.properties')) {
+        into '..'
+    }
+    from(new File(project.rootDir.toString() + '/src/scripts/run.sh')) {
+        into '..'
+    }
+}

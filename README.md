@@ -9,6 +9,8 @@ Use gradle for your build system
 ```
 # fetch all dependencies and compile the app
 gradle clean build
+# build the ./dist/ folder with all the files to run this project in it
+gradle setup
 ```
 Don't forget to get your keys from SimSage 
 visit https://simsage.nz/api.html for more details.
@@ -22,6 +24,8 @@ simsage.security.id = ?
 
 ## run on default port 8080
 ```
+cd dist
+./run.sh
 ```
 
 ## quick sanity check
